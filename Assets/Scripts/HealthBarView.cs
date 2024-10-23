@@ -2,17 +2,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class HealthBarView : MonoBehaviour
+public class HealthBarView : HealthView
 {
     private Image _image;
+
+    protected float FillAmount => _image.fillAmount;
 
     private void Awake()
     {
         _image = GetComponent<Image>();
     }
 
-    public void UpdateBar(float currentHealth, float maxHealth)
+    protected override void UpdateHealth(float currentHealth, float maxHealth)
     {
-        _image.fillAmount = currentHealth / maxHealth;
+        UpdateImage(currentHealth / maxHealth);
+    }
+
+    protected void UpdateImage(float value)
+    {
+        _image.fillAmount = value;
     }
 }

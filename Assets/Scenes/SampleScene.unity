@@ -447,6 +447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670176306}
   - component: {fileID: 670176305}
+  - component: {fileID: 670176307}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -466,10 +467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1953a550c031a7d4ea0bce0c1af33ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthText: {fileID: 434466046}
-  _healthBar: {fileID: 2006134507}
-  _smoothHealthBar: {fileID: 1983469944}
-  _maxHealth: 100
 --- !u!4 &670176306
 Transform:
   m_ObjectHideFlags: 0
@@ -485,6 +482,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &670176307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670176304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e23030a78b3094da93ab61ff4503de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textHealth: {fileID: 434466046}
+  _healthBar: {fileID: 2006134507}
+  _smoothHealthBar: {fileID: 1983469944}
+  _healthButtonHandler: {fileID: 670176305}
+  _maxHealth: 100
 --- !u!1 &1107283831
 GameObject:
   m_ObjectHideFlags: 0

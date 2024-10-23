@@ -2,34 +2,26 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class SmoothHealthBarView : MonoBehaviour
+public class SmoothHealthBarView : HealthBarView
 {
     [SerializeField] private float _smooothDecreaseDuration = 0.25f;
 
-    private Image _image;
-
-    private void Awake()
+    protected override void UpdateHealth(float currentHealth, float maxHealth)
     {
-        _image = GetComponent<Image>();
-    }
-
-    public void UpdateBar(float currentHealth)
-    {
-        StartCoroutine(DecreaseHealthSmoothly(currentHealth));
+        StartCoroutine(DecreaseHealthSmoothly(currentHealth / maxHealth));
     }
 
     private IEnumerator DecreaseHealthSmoothly(float targetHealth)
     {
         float elapsedTime = 0f;
-        float previousValue = _image.fillAmount;
+        float previousValue = FillAmount;
 
         while (elapsedTime < _smooothDecreaseDuration)
         {
             elapsedTime += Time.deltaTime;
             float normalizedPosition = elapsedTime / _smooothDecreaseDuration;
             float intermediateValue = Mathf.Lerp(previousValue, targetHealth, normalizedPosition);
-            _image.fillAmount = intermediateValue;
+            UpdateImage(intermediateValue);
 
             yield return null;
         }

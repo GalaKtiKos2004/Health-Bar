@@ -6,6 +6,7 @@ public class Health
     private float _maxHealth;
 
     public event Action Died;
+    public event Action<float, float> HealthChanged;
 
     public Health(float maxHealth)
     {
@@ -23,6 +24,7 @@ public class Health
         }
 
         CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, _maxHealth);
+        HealthChanged?.Invoke(CurrentHealth, _maxHealth);
     }
 
     public void TryTreated(float recoverHealth)
@@ -33,5 +35,6 @@ public class Health
         }
 
         CurrentHealth = Mathf.Clamp(CurrentHealth + recoverHealth, 0, _maxHealth);
+        HealthChanged?.Invoke(CurrentHealth, _maxHealth);
     }
 }
