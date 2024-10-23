@@ -28,7 +28,7 @@ public class HealthController : MonoBehaviour
 
     public void TryAddHealth(float recoverHealth)
     {
-        _health.TryAddHealth(recoverHealth);
+        _health.TryTreated(recoverHealth);
         UpdateHealth();
     }
 

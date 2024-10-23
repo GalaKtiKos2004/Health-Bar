@@ -27,8 +27,8 @@ public class SmoothHealthBarView : MonoBehaviour
         while (elapsedTime < _smooothDecreaseDuration)
         {
             elapsedTime += Time.deltaTime;
-            float normalizedPosition = Mathf.Abs(targetHealth - previousValue) * (elapsedTime / _smooothDecreaseDuration);
-            float intermediateValue = Mathf.MoveTowards(previousValue, targetHealth, normalizedPosition);
+            float normalizedPosition = elapsedTime / _smooothDecreaseDuration;
+            float intermediateValue = Mathf.Lerp(previousValue, targetHealth, normalizedPosition);
             _image.fillAmount = intermediateValue;
 
             yield return null;

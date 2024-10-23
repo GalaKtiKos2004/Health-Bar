@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class Health
 {
@@ -16,25 +17,21 @@ public class Health
 
     public void TakeDamage(float damage)
     {
-        CurrentHealth -= damage;
-
-        if (CurrentHealth <= 0)
+        if (damage < 0)
         {
-            CurrentHealth = 0;
-            Died?.Invoke();
+            return;
         }
+
+        CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, _maxHealth);
     }
 
-    public bool TryAddHealth(float recoverHealth)
+    public void TryTreated(float recoverHealth)
     {
-        if (CurrentHealth + recoverHealth > _maxHealth)
+        if (recoverHealth < 0)
         {
-            return false;
+            return;
         }
-        else
-        {
-            CurrentHealth += recoverHealth;
-            return true;
-        }
+
+        CurrentHealth = Mathf.Clamp(CurrentHealth + recoverHealth, 0, _maxHealth);
     }
 }
