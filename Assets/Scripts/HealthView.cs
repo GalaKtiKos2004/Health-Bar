@@ -4,8 +4,6 @@ public abstract class HealthView : MonoBehaviour
 {
     private Health _health;
 
-    protected Health PlayerHealth => _health;
-
     private void OnEnable()
     {
         _health.HealthChanged += UpdateHealth;

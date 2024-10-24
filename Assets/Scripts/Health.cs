@@ -5,7 +5,6 @@ public class Health
 {
     private float _maxHealth;
 
-    public event Action Died;
     public event Action<float, float> HealthChanged;
 
     public Health(float maxHealth)

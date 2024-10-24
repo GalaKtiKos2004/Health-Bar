@@ -5,7 +5,6 @@ using UnityEngine;
 public class TextHealthView : HealthView
 {
     private TextMeshProUGUI _text;
-    private Health _health;
 
     private void Awake()
     {

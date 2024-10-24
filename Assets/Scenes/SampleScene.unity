@@ -216,7 +216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &434466046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,8 +446,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 670176306}
-  - component: {fileID: 670176305}
   - component: {fileID: 670176307}
+  - component: {fileID: 670176308}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -455,18 +455,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &670176305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670176304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1953a550c031a7d4ea0bce0c1af33ed9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &670176306
 Transform:
   m_ObjectHideFlags: 0
@@ -497,8 +485,24 @@ MonoBehaviour:
   _textHealth: {fileID: 434466046}
   _healthBar: {fileID: 2006134507}
   _smoothHealthBar: {fileID: 1983469944}
-  _healthButtonHandler: {fileID: 670176305}
+  _healthButtonHandler: {fileID: 670176308}
   _maxHealth: 100
+--- !u!114 &670176308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670176304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1953a550c031a7d4ea0bce0c1af33ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageButton: {fileID: 1942999347}
+  _treatedButton: {fileID: 1989875202}
+  _damage: 10
+  _recoverHealth: 10
 --- !u!1 &1107283831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,19 +1105,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1942999348}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 670176305}
-        m_TargetAssemblyTypeName: HealthController, Assembly-CSharp
-        m_MethodName: TryGetDamage
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 10
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1942999348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,19 +1315,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1989875203}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 670176305}
-        m_TargetAssemblyTypeName: HealthController, Assembly-CSharp
-        m_MethodName: TryAddHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 10
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1989875203
 MonoBehaviour:
   m_ObjectHideFlags: 0
