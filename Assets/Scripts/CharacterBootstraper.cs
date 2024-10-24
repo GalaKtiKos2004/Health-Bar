@@ -13,9 +13,9 @@ public class CharacterBootstraper : MonoBehaviour
     {
         Health health = new Health(_maxHealth);
 
-        _textHealth.Construct(health);
-        _healthBar.Construct(health);
-        _smoothHealthBar.Construct(health);
+        _textHealth.Init(health);
+        _healthBar.Init(health);
+        _smoothHealthBar.Init(health);
         _healthButtonHandler.Construct(health);
     }
 }
